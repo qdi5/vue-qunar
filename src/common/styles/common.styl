@@ -1,0 +1,40 @@
+@import './mixins/variables.styl'
+@import './mixins/mixins.styl'
+@import './1px.styl'
+html 
+  font-size: html-font-size * 1vw
+
+body
+  font-size: 14px
+  safe-area-mixin(padding-bottom, bottom)
+
+// 常用的flexbox属性
+.flex-layer-h,
+.flex-layer-v
+  display: flex
+  flex-wrap: wrap
+  &.nowrap
+    flex-wrap: nowrap
+  // 两端对齐
+  &.justify
+    justify-content: space-between
+    // item左右两边的间距一致
+  &.around
+    justify-content: space-around
+  // 水平居中
+  &.flex-h-center 
+    justify-content: center
+  // 垂直居中
+  &.flex-v-center
+    align-items: center
+
+// flex横向布局(默认换行)
+.flex-layer-h
+  flex-direction: row
+
+// flex纵向布局
+.flex-layer-v
+  flex-direction: column
+
+.flex-fill
+  flex: 1
