@@ -115,7 +115,6 @@ export default {
   flex-grow: 0
   padding-bottom: 25%
   overflow: hidden
-  background-color: green
   .icon-img
     position: absolute
     top: 0

@@ -3,6 +3,8 @@
     <home-header></home-header>
     <home-swiper :list = "swiperList"></home-swiper>
     <home-icons :list = "iconList"></home-icons>
+    <home-recommend :list="recommendList"></home-recommend>
+    <home-weekend :list="weekendList"></home-weekend>
   </div>
 </template>
 
@@ -10,6 +12,8 @@
 import Header from 'components/home/Header.vue'
 import Swiper from 'components/home/Swiper.vue'
 import Icons from 'components/home/Icons.vue'
+import Recommend from 'components/home/Recommend.vue'
+import Weekend from 'components/home/Weekend.vue'
 export default {
   name: 'Home',
   data () {
@@ -23,7 +27,9 @@ export default {
   components: {
     HomeHeader: Header,
     HomeSwiper: Swiper,
-    HomeIcons: Icons
+    HomeIcons: Icons,
+    HomeRecommend: Recommend,
+    HomeWeekend: Weekend
   },
   mounted () {
     this.getAllData()
