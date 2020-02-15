@@ -1,22 +1,22 @@
 <template>
   <div class="header flex-layer-h flex-v-center">
     <div class="header-left">
-      <div class="iconfont back-icon">
-        <span class="iconfont icon-font-size">&#xe624;</span>
-      </div>
+      <back-icon></back-icon>
     </div>
     <div class="header-input flex-layer-h flex-v-center flex-fill">
       <span class="iconfont search-icon">&#xe632;</span>
       输入城市/景点/游玩主题
     </div>
-    <div class="header-right">
-      上海
+    <router-link tag="div" :to="{name: 'City'}" class="header-right">
+      {{getCurrentCity}}
       <span class="iconfont arrow-icon icon-font-size">&#xe64a;</span>
-    </div>
+    </router-link>
   </div>
 </template>
 
 <script>
+import BackIcon from 'common/components/BackIcon.vue'
+import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
@@ -26,7 +26,10 @@ export default {
   methods: {
   },
   components: {
-
+    BackIcon: BackIcon
+  },
+  computed: {
+    ...mapGetters(['getCurrentCity'])
   }
 }
 </script>
@@ -57,6 +60,9 @@ export default {
 .search-icon
   margin-right: 6px
 .icon-font-size
-  font-size: 14px
+  font-size: 20px
+.arrow-icon
+  &.icon-font-size
+    font-size: 12px
 </style>
 

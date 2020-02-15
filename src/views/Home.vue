@@ -14,6 +14,7 @@ import Swiper from 'components/home/Swiper.vue'
 import Icons from 'components/home/Icons.vue'
 import Recommend from 'components/home/Recommend.vue'
 import Weekend from 'components/home/Weekend.vue'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Home',
   data () {
@@ -36,7 +37,11 @@ export default {
   },
   methods: {
     getAllData () {
-      this.$http.get('/mock/index.json').then(res => {
+      this.$http.get('/mock/index.json', {
+        params: {
+          city: this.getCurrentCity
+        }
+      }).then(res => {
         console.log('请求到的首页数据：', res)
         const isSuccess = res && res.data.ret
         if (isSuccess) {
@@ -48,6 +53,9 @@ export default {
         }
       })
     }
+  },
+  computed: {
+    ...mapGetters(['getCurrentCity'])
   }
 }
 </script>

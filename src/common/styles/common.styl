@@ -7,7 +7,11 @@ html
 body
   font-size: 14px
   safe-area-mixin(padding-bottom, bottom)
-
+input 
+  border: none
+  outline: none
+li
+  list-style-type: none
 // 常用的flexbox属性
 .flex-layer-h,
 .flex-layer-v
@@ -22,19 +26,25 @@ body
   &.around
     justify-content: space-around
   // 水平居中
+  
+
+// flex横向布局(默认换行)
+.flex-layer-h
+  flex-direction: row
   &.flex-h-center 
     justify-content: center
   // 垂直居中
   &.flex-v-center
     align-items: center
 
-// flex横向布局(默认换行)
-.flex-layer-h
-  flex-direction: row
-
 // flex纵向布局
 .flex-layer-v
   flex-direction: column
-
+  &.flex-h-center
+    align-items: center
+  // 垂直居中
+  &.flex-v-center
+    justify-content: center
+// flex子元素填满剩余空间
 .flex-fill
   flex: 1
