@@ -1,7 +1,7 @@
 <template>
   <div class="recommend-wrapper">
     <div class="recommend-title">热销推荐</div>
-    <div class="recommend-item flex-layer-h" v-for="recommend of list" :key="recommend.id">
+    <router-link class="recommend-item flex-layer-h" :to="{name: 'Detail', params:{ id: recommend.id } }" tag="div" v-for="recommend of list" :key="recommend.id">
       <div class="img-wrapper">
         <img :src="recommend.imgUrl" alt="">
       </div>
@@ -10,7 +10,7 @@
         <p class="address-desc-text">{{ recommend.desc }}</p>
         <button class="address-button">查看详情</button>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 

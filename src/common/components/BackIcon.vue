@@ -33,4 +33,5 @@ export default {
   text-align: center
   .icon-font-size
     font-size: 20px
+    color: #fff
 </style>
