@@ -1,5 +1,7 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive :exclude="['CityDetail']">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>

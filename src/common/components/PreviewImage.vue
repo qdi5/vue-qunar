@@ -53,7 +53,7 @@ export default {
   overflow: hidden
 .images-wrapper
   width: 100%
-  padding-bottom: 80%
+  padding-bottom: 100%
   height: 0
   overflow: hidden
 .img-wrapper

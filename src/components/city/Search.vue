@@ -27,30 +27,41 @@ export default {
   },
   data () {
     return {
-      keyword: ''
+      keyword: '',
+      searchResult: []
     }
   },
   mounted () {
     this.BScroll = new BScroll(this.$refs.scrollRef)
+    this.timer = null
   },
   methods: {
     ...mapMutations(['setCurrentCity']),
     handleCityClick (cityName) {
       this.setCurrentCity(cityName)
       this.$router.push({ name: 'Home' })
+    },
+    search (keyword) {
+      this.searchResult = []
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      this.timer = setTimeout(() => {
+        this.searchList.forEach(item => {
+          const trimedKeyword = keyword.trim()
+          if (item.spell.indexOf(trimedKeyword) > -1 || item.name.indexOf(trimedKeyword) > -1) {
+            this.searchResult.push(item)
+          }
+        })
+        console.log(++this._index || (this._index = 1))
+      }, 1000)
     }
   },
-  computed: {
-    searchResult () {
-      const result = []
-      this.searchList.forEach(item => {
-        const trimedKeyword = this.keyword.trim()
-        if (item.spell.indexOf(trimedKeyword) > -1 || item.name.indexOf(trimedKeyword) > -1) {
-          result.push(item)
-        }
-      })
-      return result
+  watch: {
+    keyword (newVal, oldVal) {
+      this.search(newVal)
     }
+   
   }
 }
 </script>

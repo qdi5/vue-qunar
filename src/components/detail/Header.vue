@@ -18,10 +18,10 @@ export default {
       styleObj: { opacity: 0 }
     }
   },
-  mounted () {
-    document.addEventListener('scroll', this.handleScroll, false)
-    this.$once('hook:beforeDestroy', () => {
-      document.removeEventListener('scroll', this.handleScroll, false)
+  activated () {
+    window.addEventListener('scroll', this.handleScroll, false)
+    this.$once('hook:deactivated', () => {
+      window.removeEventListener('scroll', this.handleScroll, false)
     })
   },
   methods: {
